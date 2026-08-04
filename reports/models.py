@@ -1,4 +1,5 @@
 import re
+from typing import ClassVar
 from uuid import uuid4
 
 import structlog
@@ -206,7 +207,7 @@ class Report(models.Model):
 
     class Meta:
         ordering = ("menu_name",)
-        permissions = [
+        permissions: ClassVar = [
             ("view_draft", "Can view draft reports"),
         ]
 
