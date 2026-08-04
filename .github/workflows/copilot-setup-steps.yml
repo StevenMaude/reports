@@ -36,7 +36,3 @@ jobs:
       - name: Install packages
         run: |
           just devenv
-
-      - name: Build Docker
-        run: |
-          just docker-build
