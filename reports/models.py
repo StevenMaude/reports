@@ -294,8 +294,8 @@ class Report(models.Model):
             # an existing folder, we don't want to use a previously cached request
             github_report = GithubReport(self, use_cache=False)
             try:
-                # noinspection PyStatementEffect
-                github_report.repo
+                # Accessing the property fetches the repo and validates that it exists.
+                github_report.repo  # noqa: B018
             except GithubAPIException:
                 raise ValidationError(
                     {"repo": _("'%(repo)s' could not be found") % {"repo": self.repo}}
